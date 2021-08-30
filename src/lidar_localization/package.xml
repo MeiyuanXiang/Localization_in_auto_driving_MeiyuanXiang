@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>lidar_localization</name>
+    <version>0.0.0</version>
+    <description>The lidar_localization package</description>
+    <maintainer email="meiguixiangmanyuan@163.com">xiangmeiyuan</maintainer>
+    <license>TODO</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>rospy</build_depend>
+    <build_export_depend>roscpp</build_export_depend>
+    <build_export_depend>rospy</build_export_depend>
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>rospy</exec_depend>
+
+    <depend>sensor_msgs</depend>
+    <depend>pcl_ros</depend>
+    <depend>std_msgs</depend>
+    <depend>geometry_msgs</depend>
+    <depend>tf</depend>
+    <depend>eigen_conversions</depend>
+</package>
