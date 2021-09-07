@@ -8,7 +8,11 @@
 
 namespace lidar_localization
 {
-    OdometryPublisher::OdometryPublisher(ros::NodeHandle &nh, std::string topic_name, std::string base_frame_id, std::string child_frame_id, int buff_size)
+    OdometryPublisher::OdometryPublisher(ros::NodeHandle &nh,
+                                         std::string topic_name,
+                                         std::string base_frame_id,
+                                         std::string child_frame_id,
+                                         int buff_size)
         : nh_(nh)
     {
 

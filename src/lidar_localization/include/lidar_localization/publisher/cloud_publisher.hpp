@@ -19,7 +19,10 @@ namespace lidar_localization
     class CloudPublisher
     {
     public:
-        CloudPublisher(ros::NodeHandle &nh, std::string topic_name, size_t buff_size, std::string frame_id);
+        CloudPublisher(ros::NodeHandle &nh,
+                       std::string topic_name,
+                       size_t buff_size,
+                       std::string frame_id);
         CloudPublisher() = default;
 
         void Publish(CloudData::CLOUD_PTR cloud_ptr_input);

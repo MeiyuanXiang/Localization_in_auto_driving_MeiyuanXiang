@@ -1,19 +1,15 @@
 /*
  * @Description: GNSS信息
  * @Author: Xiangmy
- * @Date: 2021-08-27
+ * @Date: 2021-08-31
  */
 
 #ifndef LIDAR_LOCALIZATION_SENSOR_DATA_GNSS_DATA_HPP_
 #define LIDAR_LOCALIZATION_SENSOR_DATA_GNSS_DATA_HPP_
 
-#include <vector>
-#include <string>
+#include <deque>
 
 #include "Geocentric/LocalCartesian.hpp"
-
-using std::string;
-using std::vector;
 
 namespace lidar_localization
 {
@@ -37,6 +33,7 @@ namespace lidar_localization
     public:
         void InitOriginPosition();
         void UpdateXYZ();
+        static bool SyncData(std::deque<GNSSData>& UnsyncedData, std::deque<GNSSData>& SyncedData, double sync_time);
     };
 }
 

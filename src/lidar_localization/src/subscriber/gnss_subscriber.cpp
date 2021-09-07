@@ -1,7 +1,7 @@
 /*
  * @Description: 订阅GNSS信息，并解析数据
  * @Author: Xiangmy
- * @Date: 2021-08-27
+ * @Date: 2021-08-31
  */
 
 #include "lidar_localization/subscriber/gnss_subscriber.hpp"
@@ -23,7 +23,7 @@ namespace lidar_localization
         gnss_data.time = nav_sat_fix_ptr->header.stamp.toSec();
         gnss_data.latitude = nav_sat_fix_ptr->latitude;
         gnss_data.longitude = nav_sat_fix_ptr->longitude;
-        gnss_data.altitude = nav_sat_fix_ptr->longitude;
+        gnss_data.altitude = nav_sat_fix_ptr->altitude;
         gnss_data.status = nav_sat_fix_ptr->status.status;
         gnss_data.service = nav_sat_fix_ptr->status.service;
 

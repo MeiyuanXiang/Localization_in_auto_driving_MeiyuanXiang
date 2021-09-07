@@ -84,8 +84,7 @@ namespace lidar_localization
         }
         else
         {
-            LOG(INFO) << "关键帧点云存放地址：" << key_frame_path << std::endl
-                      << std::endl;
+            LOG(INFO) << "关键帧点云存放地址：" << key_frame_path << std::endl << std::endl;
         }
 
         return true;
@@ -166,8 +165,7 @@ namespace lidar_localization
         // 匹配之后根据距离判断是否需要生成新的关键帧，如果需要，则做相应更新
         if (fabs(last_key_frame_pose(0, 3) - current_frame_.pose(0, 3)) +
                 fabs(last_key_frame_pose(1, 3) - current_frame_.pose(1, 3)) +
-                fabs(last_key_frame_pose(2, 3) - current_frame_.pose(2, 3)) >
-            key_frame_distance_)
+                fabs(last_key_frame_pose(2, 3) - current_frame_.pose(2, 3)) > key_frame_distance_)
         {
             UpdateWithNewFrame(current_frame_);
             last_key_frame_pose = current_frame_.pose;
@@ -206,7 +204,9 @@ namespace lidar_localization
         local_map_ptr_.reset(new CloudData::CLOUD());
         for (size_t i = 0; i < local_map_frames_.size(); ++i)
         {
-            pcl::transformPointCloud(*local_map_frames_.at(i).cloud_data.cloud_ptr, *transformed_cloud_ptr, local_map_frames_.at(i).pose);
+            pcl::transformPointCloud(*local_map_frames_.at(i).cloud_data.cloud_ptr,
+                                     *transformed_cloud_ptr,
+                                     local_map_frames_.at(i).pose);
             *local_map_ptr_ += *transformed_cloud_ptr;
         }
 
@@ -247,7 +247,9 @@ namespace lidar_localization
             key_frame_path = data_path_ + "/key_frames/key_frame_" + std::to_string(i) + ".pcd";
             pcl::io::loadPCDFile(key_frame_path, *key_frame_cloud_ptr);
 
-            pcl::transformPointCloud(*key_frame_cloud_ptr, *transformed_cloud_ptr, global_map_frames_.at(i).pose);
+            pcl::transformPointCloud(*key_frame_cloud_ptr,
+                                     *transformed_cloud_ptr,
+                                     global_map_frames_.at(i).pose);
             *global_map_ptr_ += *transformed_cloud_ptr;
         }
 
